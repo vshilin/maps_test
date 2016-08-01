@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import com.firebase.client.Firebase;
 
 public class start_activity extends Activity {
 
@@ -22,7 +23,7 @@ public class start_activity extends Activity {
             @Override
             public void onFinish(){
                 Intent intent = new Intent();
-                intent.setClassName("ru.vshilin","ru.vshilin.BalloonOverlayActivity");
+                intent.setClassName("ru.vshilin","ru.vshilin.MapActivity");
                 startActivity(intent);
 
                 finish();

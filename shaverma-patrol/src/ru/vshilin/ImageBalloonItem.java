@@ -26,13 +26,22 @@ import ru.yandex.yandexmapkit.utils.GeoPoint;
  *
  */
 public class ImageBalloonItem extends BalloonItem implements OnBalloonListener{
-
-    protected ImageView imageView;
     Context mContext;
+    Shaverma shava;
 
-    public ImageBalloonItem(Context context, GeoPoint geoPoint) {
+    public ImageBalloonItem(Context context, GeoPoint geoPoint, Shaverma shava) {
         super(context, geoPoint);
         mContext = context;
+        this.shava = shava;
+
+        ((TextView) model.findViewById(R.id.score)).setText(shava.getScore() + " " + mContext.getResources().getString(R.string.rating_suffix));
+        ((TextView) model.findViewById(R.id.address)).setText(shava.getAddress());
+
+        ((RatingBar) model.findViewById(R.id.TasteRating)).setRating(shava.getTaste());
+        ((RatingBar) model.findViewById(R.id.FillRating)).setRating(shava.getFill());
+        ((RatingBar) model.findViewById(R.id.StructRating)).setRating(shava.getStruct());
+        ((RatingBar) model.findViewById(R.id.OrigRating)).setRating(shava.getOrig());
+        ((RatingBar) model.findViewById(R.id.IntpersRating)).setRating(shava.getIntPers());
     }
 
     @Override
@@ -40,24 +49,17 @@ public class ImageBalloonItem extends BalloonItem implements OnBalloonListener{
 
         LayoutInflater inflater = LayoutInflater.from( context );
         model = (ViewGroup)inflater.inflate(R.layout.balloon_images_layout, null);
-
     }
 
     
     public void setOnViewClickListener(){
-        /*
-        setOnBalloonViewClickListener(R.id.balloon_images_view1, this);
-        setOnBalloonViewClickListener(R.id.balloon_images_view2, this);
-        setOnBalloonViewClickListener(R.id.balloon_images_view3, this);
-        setOnBalloonViewClickListener(R.id.balloon_images_view4, this);
-        */
         setOnBalloonViewClickListener(R.id.youtube_link, this);
     }
 
     @Override
     public void onBalloonViewClick(BalloonItem item, View view) {
         if (view.getTag().equals("YOUTUBE")) {
-            mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://youtu.be/VtsOXV_lGqI?list=PLeOfc0M-50LmJtZwyOfw6aVopmIbU1t7t&t=875")));
+            mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(shava.getYoutubeLink())));
         } else {
             AlertDialog.Builder dialog = new AlertDialog.Builder(mContext);
             dialog.setTitle((String)view.getTag());

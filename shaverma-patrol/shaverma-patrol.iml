@@ -15,5 +15,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="classes" level="project" />
     <orderEntry type="module" module-name="yandexmapkit-library" exported="" />
+    <orderEntry type="library" exported="" name="firebase-client-android-2.5.2" level="project" />
   </component>
 </module>
