@@ -24,11 +24,11 @@ public class Shaverma {
     }
 
     public Double getGeoPointA() {
-        return Double.parseDouble(attrMap.get("geoPointA"));
+        return Double.parseDouble(attrMap.get("geoPointA").replace(',', '.'));
     }
 
     public Double getGeoPointB() {
-        return Double.parseDouble(attrMap.get("geoPointB"));
+        return Double.parseDouble(attrMap.get("geoPointB").replace(',', '.'));
     }
 
     public String getYoutubeLink() {
@@ -36,42 +36,43 @@ public class Shaverma {
     }
 
     public Float getTaste() {
-        return (Float.parseFloat(attrMap.get("taste_x")) +
-                Float.parseFloat(attrMap.get("taste_k")) +
-                Float.parseFloat(attrMap.get("taste_m"))) / 3;
+        return (Float.parseFloat(attrMap.get("taste_x").replace(',', '.')) +
+                Float.parseFloat(attrMap.get("taste_k").replace(',', '.')) +
+                Float.parseFloat(attrMap.get("taste_m").replace(',', '.'))) / 3;
     }
 
     public Float getFill() {
-        return (Float.parseFloat(attrMap.get("fill_x")) +
-                Float.parseFloat(attrMap.get("fill_k")) +
-                Float.parseFloat(attrMap.get("fill_m"))) / 3;
+        return (Float.parseFloat(attrMap.get("fill_x").replace(',', '.')) +
+                Float.parseFloat(attrMap.get("fill_k").replace(',', '.')) +
+                Float.parseFloat(attrMap.get("fill_m").replace(',', '.'))) / 3;
     }
 
     public Float getStruct() {
-        return (Float.parseFloat(attrMap.get("struct_x")) +
-                Float.parseFloat(attrMap.get("struct_k")) +
-                Float.parseFloat(attrMap.get("struct_m"))) / 3;
+        return (Float.parseFloat(attrMap.get("struct_x").replace(',', '.')) +
+                Float.parseFloat(attrMap.get("struct_k").replace(',', '.')) +
+                Float.parseFloat(attrMap.get("struct_m").replace(',', '.'))) / 3;
     }
 
     public Float getOrig() {
-        return (Float.parseFloat(attrMap.get("orig_x")) +
-                Float.parseFloat(attrMap.get("orig_k")) +
-                Float.parseFloat(attrMap.get("orig_m"))) / 3;
+        return (Float.parseFloat(attrMap.get("orig_x").replace(',', '.')) +
+                Float.parseFloat(attrMap.get("orig_k").replace(',', '.')) +
+                Float.parseFloat(attrMap.get("orig_m").replace(',', '.'))) / 3;
     }
 
     public Float getIntPers() {
-        return (Float.parseFloat(attrMap.get("int_x")) +
-                Float.parseFloat(attrMap.get("int_k")) +
-                Float.parseFloat(attrMap.get("int_m"))) / 3;
+        return (Float.parseFloat(attrMap.get("int_x").replace(',', '.')) +
+                Float.parseFloat(attrMap.get("int_k").replace(',', '.')) +
+                Float.parseFloat(attrMap.get("int_m").replace(',', '.'))) / 3;
     }
 
 
-    public String getScore() {
+    public Float getScore() {
         return
-                String.format("%.2f", (Float.parseFloat(attrMap.get("taste_x")) + Float.parseFloat(attrMap.get("taste_k")) + Float.parseFloat(attrMap.get("taste_m")) +
-                        Float.parseFloat(attrMap.get("fill_x")) + Float.parseFloat(attrMap.get("fill_k")) + Float.parseFloat(attrMap.get("fill_m")) +
-                        Float.parseFloat(attrMap.get("struct_x")) + Float.parseFloat(attrMap.get("struct_k")) + Float.parseFloat(attrMap.get("struct_m")) +
-                        Float.parseFloat(attrMap.get("orig_x")) + Float.parseFloat(attrMap.get("orig_k")) + Float.parseFloat(attrMap.get("orig_m")) +
-                        Float.parseFloat(attrMap.get("int_x")) + Float.parseFloat(attrMap.get("int_k")) + Float.parseFloat(attrMap.get("int_m")))/15);
+                (
+                        Float.parseFloat(attrMap.get("taste_x").replace(',', '.')) + Float.parseFloat(attrMap.get("taste_k").replace(',', '.')) + Float.parseFloat(attrMap.get("taste_m").replace(',', '.')) +
+                        Float.parseFloat(attrMap.get("fill_x").replace(',', '.')) + Float.parseFloat(attrMap.get("fill_k").replace(',', '.')) + Float.parseFloat(attrMap.get("fill_m").replace(',', '.')) +
+                        Float.parseFloat(attrMap.get("struct_x").replace(',', '.')) + Float.parseFloat(attrMap.get("struct_k").replace(',', '.')) + Float.parseFloat(attrMap.get("struct_m").replace(',', '.')) +
+                        Float.parseFloat(attrMap.get("orig_x").replace(',', '.')) + Float.parseFloat(attrMap.get("orig_k").replace(',', '.')) + Float.parseFloat(attrMap.get("orig_m").replace(',', '.')) +
+                        Float.parseFloat(attrMap.get("int_x").replace(',', '.')) + Float.parseFloat(attrMap.get("int_k").replace(',', '.')) + Float.parseFloat(attrMap.get("int_m").replace(',', '.')))/15;
     }
 }

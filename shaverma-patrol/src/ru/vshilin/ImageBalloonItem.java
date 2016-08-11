@@ -34,7 +34,7 @@ public class ImageBalloonItem extends BalloonItem implements OnBalloonListener{
         mContext = context;
         this.shava = shava;
 
-        ((TextView) model.findViewById(R.id.score)).setText(shava.getScore() + " " + mContext.getResources().getString(R.string.rating_suffix));
+        ((TextView) model.findViewById(R.id.score)).setText(String.format("%.2f", shava.getScore()) + " " + mContext.getResources().getString(R.string.rating_suffix));
         ((TextView) model.findViewById(R.id.address)).setText(shava.getAddress());
 
         ((RatingBar) model.findViewById(R.id.TasteRating)).setRating(shava.getTaste());
@@ -83,5 +83,9 @@ public class ImageBalloonItem extends BalloonItem implements OnBalloonListener{
 
     @Override
     public void onBalloonAnimationEnd(BalloonItem balloonItem) {
+    }
+
+    public Shaverma getShaverma() {
+        return shava;
     }
 }
